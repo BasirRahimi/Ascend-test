@@ -24,7 +24,7 @@ class Library extends Model
     ];
 
     /**
-     * Get the users that are registered to this library.
+     * Get the Users that are registered to this library.
      * 
      * @return HasMany
      */
@@ -34,12 +34,22 @@ class Library extends Model
     }
 
     /**
-     * Get the books that are registered to this library.
+     * Get the Books that are registered to this library.
      * 
      * @return HasMany
      */
     public function books(): HasMany
     {
         return $this->hasMany(Book::class);
+    }
+
+    /**
+     * Get the Books that are available to borrow.
+     *
+     * @return Collection
+     */
+    public function availableBooks(): Collection
+    {
+        return $this->books()->whereNull('user_id')->get();
     }
 }

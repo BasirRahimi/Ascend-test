@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Library;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,4 +36,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+/**
+ * Routes for the Book Model
+ * The routes which handle book management are in api routes
+ */
+Route::controller(BookController::class)->group(function () {
+    Route::get('/books', 'index');
+    Route::get('/books/create', 'create');
+    Route::get('/books/{id}', 'show');
+    Route::get('/books/{id}/edit', 'edit');
+})->middleware(['auth', 'verified']);
+
+require __DIR__ . '/auth.php';
