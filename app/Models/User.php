@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -23,6 +25,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'library_id',
+        'user_role_id'
     ];
 
     /**
@@ -56,11 +60,11 @@ class User extends Authenticatable
      * This method retrieves the role name by finding the corresponding
      * UserRole instance using the role ID and returning its name attribute.
      * 
-     * @return Attribute
+     * @return string
      */
-    protected function roleName(): Attribute
+    protected function getRoleNameAttribute(): string
     {
-        return Attribute::make(get: fn () => UserRole::find($this->role)->name);
+        return UserRole::find($this->user_role_id)->name;
     }
 
     /**

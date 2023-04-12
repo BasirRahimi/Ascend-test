@@ -13,6 +13,13 @@ class UserRoleSeeder extends Seeder
      */
     public function run(): void
     {
-        // TODO: Create UserRoles and persist them to the databse.
+        $roles = [
+            ['name' => 'admin'],
+            ['name' => 'default'],
+        ];
+
+        foreach ($roles as $role) {
+            UserRole::create($role);
+        }
     }
 }
