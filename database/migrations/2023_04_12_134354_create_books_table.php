@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('author_name');
             $table->foreignIdFor(Library::class)->constrained();
-            $table->foreignIdFor(User::class)->constrained();
+
+            $table->unsignedBigInteger('user_id')->nullable()->default(null);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+
             $table->timestamps();
         });
     }
