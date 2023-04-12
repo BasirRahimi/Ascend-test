@@ -13,7 +13,20 @@ class Library extends Model
     protected $table = 'libraries';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'address',
+        'telephone',
+    ];
+
+    /**
      * Get the users that are registered to this library.
+     * 
+     * @return HasMany
      */
     public function users(): HasMany
     {
@@ -22,6 +35,8 @@ class Library extends Model
 
     /**
      * Get the books that are registered to this library.
+     * 
+     * @return HasMany
      */
     public function books(): HasMany
     {

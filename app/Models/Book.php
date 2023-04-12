@@ -14,15 +14,29 @@ class Book extends Model
     protected $table = 'books';
 
     /**
-     * Get the Library the Book is registered to.
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
-    public function libary(): BelongsTo
+    protected $fillable = [
+        'name',
+        'author_name',
+    ];
+
+    /**
+     * Get the library that owns the book.
+     *
+     * @return BelongsTo
+     */
+    public function library(): BelongsTo
     {
         return $this->belongsTo(Library::class);
     }
 
     /**
-     * Get the User which has borrowed the book.
+     * Get the user who borrowed the book.
+     *
+     * @return BelongsTo
      */
     public function user(): BelongsTo
     {

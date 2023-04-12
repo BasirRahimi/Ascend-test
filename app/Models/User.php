@@ -55,6 +55,8 @@ class User extends Authenticatable
      * Get the name of the associated role for the current instance.
      * This method retrieves the role name by finding the corresponding
      * UserRole instance using the role ID and returning its name attribute.
+     * 
+     * @return Attribute
      */
     protected function roleName(): Attribute
     {
@@ -63,6 +65,8 @@ class User extends Authenticatable
 
     /**
      * Get the UserRole assigned to the current User model.
+     * 
+     * @return BelongsTo
      */
     public function role(): BelongsTo
     {
@@ -70,7 +74,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the Library to which the current User model is registered to. 
+     * Get the Library to which the current User model is registered to.
+     * 
+     * @return BelongsTo
      */
     public function library(): BelongsTo
     {
@@ -79,6 +85,8 @@ class User extends Authenticatable
 
     /**
      * Get the Books which the User has borrowed.
+     * 
+     * @return HasMany
      */
     public function books(): HasMany
     {

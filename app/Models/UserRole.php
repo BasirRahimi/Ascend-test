@@ -10,4 +10,13 @@ class UserRole extends Model
     use HasFactory;
 
     protected $table = 'user_roles';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name'
+    ];
 }
