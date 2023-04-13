@@ -8,8 +8,8 @@ Backend scaffolding for a Library application with the following functionalities
 3. The application is closed off meaning currently no Third party can use our Api routes, this may be changed depending on requirements.
 
 ### Notes
-I made use of laravel breeze vue in order to setup authentication scaffolding and register a user.
-I tested my Models via Tinker however given more time I could implement feature tests for the methods defined in Book and Library controller.
+- I made use of laravel breeze vue in order to setup authentication scaffolding and register a user.
+- I tested my Models via Tinker however given more time I could implement feature tests for the methods defined in Book and Library controller.
 
 ### Tinker
 If you'd like to use laravel tinker please:
