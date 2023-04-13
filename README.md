@@ -23,7 +23,7 @@ Now in a seperate terminal
 1. `npm install`
 2. `npm run dev`
 
-Now in your browser visit the local website and create an account / register.
-You'll find the url in your artisan serve terminal
-Now you can stop npm run dev and artisan dev if you wish, it's doesn't need to be running to tinker.
-Within your terminal run `php artisan tinker`.
+- Now in your browser visit the local website and create an account / register.
+- You'll find the url in your artisan serve terminal
+- Now you can stop npm run dev and artisan dev if you wish, it's doesn't need to be running to tinker.
+- Within your terminal run `php artisan tinker`.
