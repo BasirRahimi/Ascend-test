@@ -8,12 +8,22 @@ Backend scaffolding for a Library application with the following functionalities
 3. The application is closed off meaning currently no Third party can use our Api routes, this may be changed depending on requirements.
 
 ### Notes
-I made use of laravel breeze vue in order to register a user, which includes an ideal setup with Vite and Inertia.
-I tested my functions via Tinker however given more time I could implement unit tests for the methods defined in Book and Library controller.
+I made use of laravel breeze vue in order to setup authentication scaffolding and register a user.
+I tested my Models via Tinker however given more time I could implement feature tests for the methods defined in Book and Library controller.
 
-### Run the application
-After cloning/pulling master please:
+### Tinker
+If you'd like to use laravel tinker please:
 1. `composer install`
-2. `npm install`
-3. `npm run dev`
-4. In a seperate terminal `php artisan serve`
+2. `php artisan migrage`
+3. `php artisan db:seed`
+4. `php artisam serve`
+
+Now in a seperate terminal
+
+1. `npm install`
+2. `npm run dev`
+
+Now in your browser visit the local website and create an account / register.
+You'll find the url in your artisan serve terminal
+Now you can stop npm run dev and artisan dev if you wish, it's doesn't need to be running to tinker.
+Within your terminal run `php artisan tinker`.

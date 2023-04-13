@@ -19,10 +19,10 @@ class BookSeeder extends Seeder
         // Retrieve all existing libraries
         $libraries = Library::all();
 
-        // Loop through each library and create 1000 books for each
+        // Loop through each library and create 10 books for each
         $libraries->each(function ($library) {
             Book::factory()
-                ->count(1000)
+                ->count(10)
                 ->for($library) // Assign the books to the current library
                 ->create();
         });

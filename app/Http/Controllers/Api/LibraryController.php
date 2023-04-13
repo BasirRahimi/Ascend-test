@@ -27,7 +27,8 @@ class LibraryController extends Controller
 
         if ($book->isAvailable) {
             try {
-                $book->update(['user_id', $user->id]);
+                $book->user_id = $user->id;
+                $book->save();
                 return response()->json(['message' => 'Book has successfully been borrowed'], 200);
             } catch (Exception $error) {
                 return response()->json(['message' => $error->getMessage()], $error->getCode());
@@ -54,7 +55,8 @@ class LibraryController extends Controller
 
         if ($book->user_id === $user->id) {
             try {
-                $book->update(['user_id' => null]);
+                $book->user_id = null;
+                $book->save();
                 return response()->json(['message' => 'Book has successfully been returned'], 200);
             } catch (Exception $error) {
                 return response()->json(['message' => $error->getMessage()], $error->getCode());
